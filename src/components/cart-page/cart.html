@@ -1,0 +1,16 @@
+<h1>Heucles´s Cart</h1>
+<div>
+	<a href="#" id="addToCart" data-bind="click : addItem" data-sku="ski">Add To Cart</a>
+</div>
+<div id="cart">
+	<ul>
+	<li data-bind="sku"></li>
+	</ul>
+</div>
+
+<script>
+$(function () {
+	var cart = new Cart();
+	ko.applyBindings(cart);
+});
+</script>
