@@ -1,5 +1,5 @@
 define(['components/cart-page/cart'], function(cart) {
-  var cart = new cart.Cart();
+  var cart = new cart.viewModel();
   describe('Cart', function() {
 
     it('exists', function(){
@@ -28,10 +28,10 @@ define(['components/cart-page/cart'], function(cart) {
   });
 
    it('increments quantity when same sku', function() {
-    cart.addItem({sku:'skis'})
-    cart.addItem({sku:'skis'})
+    cart.addItem({sku:'skis'});
 
     expect(cart.itemCount()).toEqual(1); 
+    expect(cart.items()[0].quantity).toEqual(2); 
 
   });
 

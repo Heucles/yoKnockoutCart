@@ -1,16 +1,23 @@
 <h1>Heucles´s Cart</h1>
 <div>
-	<a href="#" id="addToCart" data-bind="click : addItem" data-sku="ski">Add To Cart</a>
+	<a href="#" id="addToCart" data-bind="click: addItemClicked" data-sku="lego">Add To Cart</a>
 </div>
 <div id="cart">
-	<ul>
-	<li data-bind="sku"></li>
-	</ul>
-</div>
+<!-- The copde bellow dont work in the environment where the routing plugin that we are using
+is refered to, in scot hanselman play by play he uses it differently, as just referencing the bind that is being made above
+but out here it wont work
 
-<script>
-$(function () {
-	var cart = new Cart();
-	ko.applyBindings(cart);
-});
-</script>
+	<ul>
+	<li data-bind="text:sku"></li>
+	</ul> 
+-->
+
+<ul data-bind="foreach: items">
+	<li> 
+		<span data-bind="text:sku"></span>(<span data-bind="text:quantity"></span>)
+		<a href="#" data-bind="click:$parent.removeItemClicked">Click to remove</a></li>
+
+	</li>
+</ul>
+
+</div>
